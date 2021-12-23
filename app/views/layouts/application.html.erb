@@ -28,7 +28,7 @@
                   <%= link_to "Home", root_path %>
                 </li>
                 <li class="fas fa-home nav-link text-light">
-                  <%= link_to "Users", user_registration_path %>
+                  <%= link_to "Users", user_path(current_user.id) %>
                 </li>
                 <li class="fas fa-home nav-link text-light">
                   <%= link_to "Books", books_path %>
@@ -57,8 +57,17 @@
     </header>
 
 
-    
+
 
     <%= yield %>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
