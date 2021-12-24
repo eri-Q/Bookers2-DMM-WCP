@@ -21,7 +21,7 @@
         	</thead>
         </tbody>
       </table>
-      <%= link_to edit_user_registration_path, class: "col-lg-12 btn btn-secondary", method: :get do %>
+      <%= link_to edit_user_registration_path(current_user), class: "col-lg-12 btn btn-secondary", method: :get do %>
         <i class="fas fa-user-cog"></i>
       <% end %>
 
@@ -46,11 +46,15 @@
         </tr>
       </thead>
       <tbody>
+          <tr>
+            <% @post_images.each do |post_image| %>
+            <td><%= attachment_image_tag post_image, :image %>
+            <% end %> 
+            <% @books.each do |book| %>
+            <td><%= book.title %></td>
+            <td><%= book.body %></td>
+            <% end %>
+          </tr>
       </tbody>
       </table>
-    </div>
-    </div>
-    </div>
-  </div>
 </div>
-
