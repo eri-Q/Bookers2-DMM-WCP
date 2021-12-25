@@ -19,6 +19,7 @@ class BooksController < ApplicationController
   def index
     @users = User.all
     @user = User.find(current_user.id)
+    @user = User.find(@user.id)
     @books = Book.all
     @book = Book.new
   end
@@ -34,12 +35,13 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    book.user_id = current_user.id
-    if book.update(book_params)
+    @book = Book.find(params[:id])
+    @book.user_id = current_user.id
+    if @book.update(book_params)
       flash[:notice] = "You have updated book successfully."
+      redirect_to book_path(@book.id)
     else
-      redirect_to edit_book_path(book.id)
+      redirect_to edit_book_path(@book.id)
     end
   end
 

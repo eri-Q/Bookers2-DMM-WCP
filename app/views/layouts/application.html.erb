@@ -27,13 +27,13 @@
                 <li class="fas fa-home nav-link text-light">
                   <%= link_to "Home", user_path(current_user.id) %>
                 </li>
-                <li class="fas fa-home nav-link text-light">
-                  <%= link_to "Users", users_path(current_user.id) %>
+                <li class="fas fa-users nav-link text-light">
+                  <%= link_to "Users", users_path %>
                 </li>
-                <li class="fas fa-home nav-link text-light">
+                <li class="fas fa-book-open nav-link text-light">
                   <%= link_to "Books", books_path %>
                 </li>
-                <li class="fas fa-home nav-link text-light">
+                <li class="fas fa-sign-out-alt nav-link text-light">
                   <%= link_to "Log out", destroy_user_session_path, method: :delete %>
                 </li>
               <% else %>
